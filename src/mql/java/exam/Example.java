@@ -8,7 +8,7 @@ public class Example {
 	
 	
 	void exp01() {
-		
+		System.out.println("hello world");
 	}
 	
 	public static void main(String[] args) {

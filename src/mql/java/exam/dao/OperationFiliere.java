@@ -1,7 +1,6 @@
 package mql.java.exam.dao;
 import java.util.Vector;
 
-import mql.java.exam.business.FiliereService;
 import mql.java.exam.models.Etudiant;
 import mql.java.exam.models.Filiere;
 import mql.java.exam.models.Note;
@@ -82,6 +81,10 @@ public class OperationFiliere {
 	public void ajouterSemestres(Semestre[] semestres) {
 		fileComposer.ajouterSemestres(semestres);
 	}
+
+				String value= "";
+				while((value = br.readLine()) != null){
+					System.out.println(value);
 	
 	public void ajouterModules(Module[] modules) {
 		fileComposer.ajouterModules(modules);

@@ -10,20 +10,20 @@ public class FileComposer {
 	}
 	
 	
-	public void ajouterEtudiants(Etudiant[] etudiants) {
+	// public void ajouterEtudiants(Etudiant[] etudiants) {
 		
-	}
+	// }
 	
-	public void ajouterSemestres(Semestre[] semestres) {
+	// public void ajouterSemestres(Semestre[] semestres) {
 		
-	}
+	// }
 	
-	public void ajouterModules(Module[] modules) {
+	// public void ajouterModules(Module[] modules) {
 		
-	}
+	// }
 	
-	public void ajouterNotes(Note[] notes) {
+	// public void ajouterNotes(Note[] notes) {
 		
-	}
+	// }
 
 }

@@ -5,10 +5,10 @@ import java.util.List;
 public class Note {
 	
 	private List<Double> notes;
-	private int coefficient;
+	private int[] coefficient;
 	private Etudiant etudiant;
 	
-	public Note(List<Double> notes,int coefficient,Etudiant etudiant) {
+	public Note(List<Double> notes,int[] coefficient,Etudiant etudiant) {
 		this.notes = notes;
 		this.coefficient = coefficient;
 	}
@@ -17,7 +17,7 @@ public class Note {
 		return notes;
 	}
 	
-	public int getCoefficient() {
+	public int[] getCoefficient() {
 		return coefficient;
 	}
 	
