@@ -1,16 +1,17 @@
 package mql.java.exam.models;
 
 import java.util.Hashtable;
+import java.util.Vector;
 
 public class Module {
 	
 	private int id;
 	private String nom;
-	private Hashtable<String,Note[]> notesEtudiant;
+	private Hashtable<String,Vector<Note>> notesEtudiant;
 	private String nomProfesseur;
 	private int nombreNotes;
 	
-	public Module(int id ,String nom,Hashtable<String,Note[]> notesEtudiant,String nomProfesseur,int nombreNotes) {
+	public Module(int id ,String nom,Hashtable<String,Vector<Note>> notesEtudiant,String nomProfesseur,int nombreNotes) {
 			
 		this.id = id;
 		this.notesEtudiant = notesEtudiant;
@@ -52,7 +53,7 @@ public class Module {
 		this.id = id;
 	}
 
-	public Hashtable<String, Note[]> getNotesEtudiant() {
+	public Hashtable<String, Vector<Note>> getNotesEtudiant() {
 		return notesEtudiant;
 	}
 	

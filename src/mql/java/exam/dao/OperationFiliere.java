@@ -1,97 +1,77 @@
-// package mql.java.exam.dao;
-// import java.util.Vector;
+package mql.java.exam.dao;
+import java.util.Vector;
 
-// import mql.java.exam.models.Etudiant;
-// import mql.java.exam.models.Filiere;
-// import mql.java.exam.models.Note;
-// import mql.java.exam.models.Semestre;
-// import mql.java.exam.models.Module;
+import mql.java.exam.models.Etudiant;
+import mql.java.exam.models.Filiere;
+import mql.java.exam.models.Note;
+import mql.java.exam.models.Semestre;
+import util.Helper;
+import mql.java.exam.models.Module;
 
-// public class OperationFiliere {
+public class OperationFiliere {
 	
-// 	private Filiere filiere;
-// 	private Semestre[] semestresFiliere;
-// 	// // private FileComposer fileComposer;
-// 	private FileParser fileParser;
+	Filiere filiere;
 	
-	
-// 	public OperationFiliere(Filiere filiere) {
-// 		//this.filiere = filiere;
-// 		//this.filiere = new parseFile("").getFiliere();
-// 		this.semestresFiliere = this.filiere.getSemestres();
-// 	}
-	
-// 	public Etudiant[] etudiants() {
+	public OperationFiliere(String nomFiliere) {
 		
-// 		Vector<Etudiant> etudiants = new Vector<Etudiant>();
-// 		for (Semestre semestre : semestresFiliere) {
-// 			for (Etudiant etudiant : semestre.getEtudiants()) {
-// 				etudiants.add(etudiant);
-// 			}
-// 		}
-		
-// 		Etudiant[] etudiantsFiliere = new Etudiant[etudiants.size()]; 
-// 		etudiants.toArray(etudiantsFiliere);
-		
-// 		return etudiantsFiliere;
-// 	}
+		this.filiere = new FileParser(nomFiliere).getFiliere();
+		notes();
+	}
 	
-// 	public Semestre[] semestres() {
-// 		return filiere.getSemestres();
-// 	}
-	
-// 	public Module[] modules() {
+	public Semestre[] semestres() {
 		
-// 		Vector<Module> modules = new Vector<Module>();
-// 		for (Semestre semestre : semestresFiliere) {
-// 			for (Module module : semestre.getModules()) {
-// 				modules.add(module);
-// 			}
-// 		}
+		return this.filiere.getSemestres();
 		
-// 		Module[] modulesSemestre = new Module[modules.size()]; 
-// 		modules.toArray(modulesSemestre);
+	}
+	
+	public Etudiant[] etudiants() {
 		
-// 		return modulesSemestre;
-	
-// 	}
-	
-// 	public Note[] notes() {
+		Vector<Etudiant> etudiants = new Vector<>();
+		for (Semestre semestre : this.filiere.getSemestres()) {
+			for (Etudiant etudiant : semestre.getEtudiants()) {
+				etudiants.add(etudiant);
+			}
+		}
 		
-// 		Vector<Note> notes = new Vector<Note>();
-// 		for (Semestre semestre : semestresFiliere) {
-// 			for (Module module : semestre.getModules()) {
-// 				for (Note note : module.getNotes()) {
-// 					notes.add(note);
-// 				}
-// 			}
-// 		}
+		return Helper.convertVectorToArray(etudiants);
 		
-// 		Note[] noteFiliere = new Note[notes.size()];
-// 		notes.toArray(noteFiliere);
+	}
+	
+	public Module[] modules() {
 		
-// 		return noteFiliere;
-
-// 	}
+		Vector<Module> modules = new Vector<>();
+		for (Semestre semestre : this.filiere.getSemestres()) {
+			for (Module module : semestre.getModules()) {
+				modules.add(module);
+			}
+		}
+		
+		return Helper.convertVectorToArray(modules);
+		
+	}
 	
-// 	public void ajouterEtudiants(Etudiant[] etudiants) {
-// 		// fileComposer.ajouterEtudiants(etudiants);
-// 	}
+	public Note[] notes() {
+		
+		Vector<Note> notes = new Vector<>();
+		for (Semestre semestre : this.filiere.getSemestres()) {
+			for (Module module : semestre.getModules()) {
+				module.getNotesEtudiant().forEach((cne,listeNotes) -> {
+					for (Note note : listeNotes) {
+						notes.add(note);
+					}
+				});
+			}
+		}
+		
+		return Helper.convertVectorToArray(notes);
 	
-// 	public void ajouterSemestres(Semestre[] semestres) {
-// 		// fileComposer.ajouterSemestres(semestres);
-// 	}
-
-// 				String value= "";
-// 				while((value = br.readLine()) != null){
-// 					System.out.println(value);
-// 				}
-// 	public void ajouterModules(Module[] modules) {
-// 		// fileComposer.ajouterModules(modules);
-// 	}
+	}
 	
-// 	public void ajouterNotes(Note[] notes) {
-// 		// fileComposer.ajouterNotes(notes);
-// 	}
-
-// }
+	public static void main(String[] args) {
+		new OperationFiliere("SMI");
+	}
+	
+	public Filiere getFiliere() {
+		return filiere;
+	}
+}
