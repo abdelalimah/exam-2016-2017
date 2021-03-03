@@ -38,5 +38,20 @@ public class Semestre {
 		this.modules = modules;
 	}
 	
+	@Override
+	public String toString() {
+		System.out.println("Le nom du semestre : "+this.nom);
+		System.out.println("-------------");
+		System.out.println("modules du semestre : ");
+		for (Module module : modules) {
+			System.out.println(module.getNom());
+		}
+		System.out.println("Etudiant de semestre : ");
+		for (Etudiant etudiant : etudiants) {
+			System.out.println(etudiant.getNom());
+		}
+		System.out.println("-------------");
+		return null;
+	}
 	
 }

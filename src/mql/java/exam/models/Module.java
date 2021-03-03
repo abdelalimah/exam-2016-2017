@@ -1,19 +1,21 @@
 package mql.java.exam.models;
 
+import java.util.Hashtable;
+
 public class Module {
 	
+	private int id;
 	private String nom;
-	private Note[] notes;
-	private String nomProf;
+	private Hashtable<String,Note[]> notesEtudiant;
+	private String nomProfesseur;
 	private int nombreNotes;
-	private int[] coefficients;
 	
-	public Module(String nom,Note[] notes,String nomProf,int nombreNotes) {
+	public Module(int id ,String nom,Hashtable<String,Note[]> notesEtudiant,String nomProfesseur,int nombreNotes) {
 			
-		this.notes = notes;
-		this.nomProf = nomProf;
+		this.id = id;
+		this.notesEtudiant = notesEtudiant;
+		this.nomProfesseur = nomProfesseur;
 		this.nombreNotes = nombreNotes;
-		this.coefficients = new int[nombreNotes];
 		this.nom = nom;
 	
 	}
@@ -26,20 +28,12 @@ public class Module {
 		this.nom = nom;
 	}
 
-	public Note[] getNotes() {
-		return notes;
+	public String getNomProfesseur() {
+		return nomProfesseur;
 	}
 
-	public void setNotes(Note[] notes) {
-		this.notes = notes;
-	}
-
-	public String getNomProf() {
-		return nomProf;
-	}
-
-	public void setNomProf(String nomProf) {
-		this.nomProf = nomProf;
+	public void setNomProfesseur(String nomProfesseur) {
+		this.nomProfesseur = nomProfesseur;
 	}
 
 	public int getNombreNotes() {
@@ -47,17 +41,34 @@ public class Module {
 	}
 
 	public void setNombreNotes(int nombreNotes) {
-		this.nombreNotes = nombreNotes;
+		this.nombreNotes = nombreNotes; 
 	}
 
-	public int[] getCoefficients() {
-		return coefficients;
+	public int getId() {
+		return id;
 	}
 
-	public void setCoefficients(int[] coefficients) {
-		this.coefficients = coefficients;
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Hashtable<String, Note[]> getNotesEtudiant() {
+		return notesEtudiant;
 	}
 	
-	
-	
+	@Override
+	public String toString() {
+		System.out.println("Le module est : "+this.nom);
+		System.out.println("Le nom du prof : "+this.nomProfesseur);
+		System.out.println("Note list : ");
+			System.out.println("-------------");
+			this.getNotesEtudiant().forEach((cne,notes) -> {
+				System.out.println(" notes de l'etudiant numero : "+cne);
+				for (Note note : notes) {
+					System.out.println(" la note : "+note + " la coefficient est : "+note.getCoefficient());
+				}
+			});
+		System.out.println("-------------");
+		return null;
+	}
 }

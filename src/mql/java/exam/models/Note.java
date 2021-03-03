@@ -1,28 +1,27 @@
 package mql.java.exam.models;
 
-import java.util.List;
-
 public class Note {
 	
-	private List<Double> notes;
-	private int[] coefficient;
-	private Etudiant etudiant;
+	private double note;
+	private int coefficient;
 	
-	public Note(List<Double> notes,int[] coefficient,Etudiant etudiant) {
-		this.notes = notes;
+	public Note(double note,int coefficient) {
+		this.note = note;
 		this.coefficient = coefficient;
 	}
 	
-	public List<Double> getNote() {
-		return notes;
+	public double getNote() {
+		return note;
 	}
 	
-	public int[] getCoefficient() {
+	public int getCoefficient() {
 		return coefficient;
 	}
-	
-	public Etudiant getEtudiant() {
-		return etudiant;
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return ""+note;
 	}
 
 }
