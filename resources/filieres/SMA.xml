@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<filière name="SMA">
+	<semestres>
+
+		<semestre name="S1">
+			<modules>
+				<module id="1" name="Algorithmique">
+					<prof>Said Fadili</prof>
+					<nb_notes>4</nb_notes>
+					<coefs>
+						<coef>1</coef>
+						<coef>1</coef>
+						<coef>2</coef>
+						<coef>1</coef>
+					</coefs>
+					<notes>
+						<note codeE="1">
+							<value>17.20</value>
+							<value>05.60</value>
+							<value>14.60</value>
+							<value>10.00</value>
+						</note>
+						<note codeE="2">
+							<value>18.40</value>
+							<value>12.50</value>
+							<value>13.70</value>
+							<value>10.60</value>
+						</note>
+						<note codeE="3">
+							<value>14.65</value>
+							<value>15.40</value>
+							<value>19.00</value>
+							<value>14.32</value>
+						</note>
+						<note codeE="4">
+							<value>18.20</value>
+							<value>11.01</value>
+							<value>12.64</value>
+							<value>14.61</value>
+						</note>
+					</notes>
+				</module>
+				<module id="2" name="Electronique">
+					<prof>Mhamdi karim</prof>
+					<nb_notes>4</nb_notes>
+					<coefs>
+						<coef>1</coef>
+						<coef>1</coef>
+						<coef>2</coef>
+						<coef>1</coef>
+					</coefs>
+					<notes>
+						<note codeE="1">
+							<value>17.20</value>
+							<value>05.60</value>
+							<value>14.60</value>
+							<value>10.00</value>
+						</note>
+						<note codeE="2">
+							<value>18.40</value>
+							<value>12.50</value>
+							<value>13.70</value>
+							<value>10.60</value>
+						</note>
+						<note codeE="3">
+							<value>14.65</value>
+							<value>15.40</value>
+							<value>19.00</value>
+							<value>14.32</value>
+						</note>
+						<note codeE="4">
+							<value>18.20</value>
+							<value>11.01</value>
+							<value>12.64</value>
+							<value>14.61</value>
+						</note>
+					</notes>
+				</module>
+			</modules>
+			<etudiants>
+				<etudiant code="1">
+					<cne>101112</cne>
+					<nom>Alla</nom>
+					<prenom>Rida</prenom>
+				</etudiant>
+				<etudiant code="2">
+					<cne>131415</cne>
+					<nom>Amessas</nom>
+					<prenom>Ilyas</prenom>
+				</etudiant>
+				<etudiant code="3">
+					<cne>161718</cne>
+					<nom>Elmorabet</nom>
+					<prenom>Hicham</prenom>
+				</etudiant>
+				<etudiant code="4">
+					<cne>192021</cne>
+					<nom>Mahtouchi</nom>
+					<prenom>Hamza</prenom>
+				</etudiant>
+			</etudiants>
+		</semestre>
+		<semestre name="S2">
+			<modules>
+				<module id="1" name="Algorithmique">
+					<prof>Said Fadili</prof>
+					<nb_notes>4</nb_notes>
+					<coefs>
+						<coef>1</coef>
+						<coef>1</coef>
+						<coef>2</coef>
+						<coef>1</coef>
+					</coefs>
+					<notes>
+						<note codeE="1">
+							<value>17.20</value>
+							<value>05.60</value>
+							<value>14.60</value>
+							<value>10.00</value>
+						</note>
+						<note codeE="2">
+							<value>18.40</value>
+							<value>12.50</value>
+							<value>13.70</value>
+							<value>10.60</value>
+						</note>
+						<note codeE="3">
+							<value>14.65</value>
+							<value>15.40</value>
+							<value>19.00</value>
+							<value>14.32</value>
+						</note>
+						<note codeE="4">
+							<value>18.20</value>
+							<value>11.01</value>
+							<value>12.64</value>
+							<value>14.61</value>
+						</note>
+					</notes>
+				</module>
+				<module id="2" name="Electronique">
+					<prof>Mhamdi karim</prof>
+					<nb_notes>4</nb_notes>
+					<coefs>
+						<coef>1</coef>
+						<coef>1</coef>
+						<coef>2</coef>
+						<coef>1</coef>
+					</coefs>
+					<notes>
+						<note codeE="1">
+							<value>17.20</value>
+							<value>05.60</value>
+							<value>14.60</value>
+							<value>10.00</value>
+						</note>
+						<note codeE="2">
+							<value>18.40</value>
+							<value>12.50</value>
+							<value>13.70</value>
+							<value>10.60</value>
+						</note>
+						<note codeE="3">
+							<value>14.65</value>
+							<value>15.40</value>
+							<value>19.00</value>
+							<value>14.32</value>
+						</note>
+						<note codeE="4">
+							<value>18.20</value>
+							<value>11.01</value>
+							<value>12.64</value>
+							<value>14.61</value>
+						</note>
+					</notes>
+				</module>
+			</modules>
+			<etudiants>
+				<etudiant code="1">
+					<cne>101112</cne>
+					<nom>Alla</nom>
+					<prenom>Rida</prenom>
+				</etudiant>
+				<etudiant code="2">
+					<cne>131415</cne>
+					<nom>Amessas</nom>
+					<prenom>Ilyas</prenom>
+				</etudiant>
+				<etudiant code="3">
+					<cne>161718</cne>
+					<nom>Elmorabet</nom>
+					<prenom>Hicham</prenom>
+				</etudiant>
+				<etudiant code="4">
+					<cne>192021</cne>
+					<nom>Mahtouchi</nom>
+					<prenom>Hamza</prenom>
+				</etudiant>
+			</etudiants>
+		</semestre>
+		
+	</semestres>
+	
+</filière>

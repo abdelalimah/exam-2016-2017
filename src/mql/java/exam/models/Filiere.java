@@ -22,7 +22,8 @@ public class Filiere {
 	
 	public Semestre[] getSemestres() {
 		
-		Semestre[] tableauSemestres = Helper.convertVectorToArray(this.semestres);
+		Semestre[] tableauSemestres = new Semestre[this.semestres.size()];
+		this.semestres.toArray(tableauSemestres);
 		return tableauSemestres;
 	
 	}

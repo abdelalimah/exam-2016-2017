@@ -27,7 +27,16 @@ public class OperationFiliere {
 	}
 
 	public static void main(String[] args) {
-		Filiere filiere = new OperationFiliere("SMI").charger();
-		System.out.println(filiere.getNom());
+		OperationFiliere operationFiliere = new OperationFiliere("SMA");
+		Filiere filiere = operationFiliere.charger();
+		
+		for (Semestre semestre : filiere.getSemestres()) {
+			for (Module  module : semestre.getModules()) {
+				System.out.println(module.getNom());
+			}
+			for (Etudiant etudiant : semestre.getEtudiants()) {
+				System.out.println(etudiant.getNom());
+			}
+		}
 	}
 }
