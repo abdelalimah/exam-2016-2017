@@ -1,77 +1,33 @@
 package mql.java.exam.dao;
+import java.nio.file.attribute.FileOwnerAttributeView;
 import java.util.Vector;
 
 import mql.java.exam.models.Etudiant;
 import mql.java.exam.models.Filiere;
 import mql.java.exam.models.Note;
 import mql.java.exam.models.Semestre;
-import util.Helper;
+import mql.java.exam.util.*;
 import mql.java.exam.models.Module;
 
 public class OperationFiliere {
+
+	private Filiere filiere;
 	
-	Filiere filiere;
-	
-	public OperationFiliere(String nomFiliere) {
-		
-		this.filiere = new FileParser(nomFiliere).getFiliere();
-		notes();
+	public OperationFiliere(String nomFiliere){
+		FileParser parser = new FileParser(nomFiliere);
+		this.filiere = parser.getFiliere();
 	}
-	
-	public Semestre[] semestres() {
-		
-		return this.filiere.getSemestres();
-		
+
+	public Filiere charger(){
+		return this.filiere;
 	}
-	
-	public Etudiant[] etudiants() {
-		
-		Vector<Etudiant> etudiants = new Vector<>();
-		for (Semestre semestre : this.filiere.getSemestres()) {
-			for (Etudiant etudiant : semestre.getEtudiants()) {
-				etudiants.add(etudiant);
-			}
-		}
-		
-		return Helper.convertVectorToArray(etudiants);
-		
+
+	public void sauvegarder(){
+		// TO-DO : hello world
 	}
-	
-	public Module[] modules() {
-		
-		Vector<Module> modules = new Vector<>();
-		for (Semestre semestre : this.filiere.getSemestres()) {
-			for (Module module : semestre.getModules()) {
-				modules.add(module);
-			}
-		}
-		
-		return Helper.convertVectorToArray(modules);
-		
-	}
-	
-	public Note[] notes() {
-		
-		Vector<Note> notes = new Vector<>();
-		for (Semestre semestre : this.filiere.getSemestres()) {
-			for (Module module : semestre.getModules()) {
-				module.getNotesEtudiant().forEach((cne,listeNotes) -> {
-					for (Note note : listeNotes) {
-						notes.add(note);
-					}
-				});
-			}
-		}
-		
-		return Helper.convertVectorToArray(notes);
-	
-	}
-	
+
 	public static void main(String[] args) {
-		new OperationFiliere("SMI");
-	}
-	
-	public Filiere getFiliere() {
-		return filiere;
+		Filiere filiere = new OperationFiliere("SMI").charger();
+		System.out.println(filiere.getNom());
 	}
 }

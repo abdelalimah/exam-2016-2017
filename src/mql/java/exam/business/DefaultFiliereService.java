@@ -3,7 +3,7 @@ package mql.java.exam.business;
 import mql.java.exam.models.Etudiant;
 import mql.java.exam.models.InformationEtudiant;
 
-public class FiliereManager implements FiliereService {
+public class DefaultFiliereService implements FiliereService {
 
 	@Override
 	public void ajouterEtudiant(Etudiant etudiant) {

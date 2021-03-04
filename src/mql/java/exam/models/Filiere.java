@@ -2,7 +2,7 @@ package mql.java.exam.models;
 
 import java.util.Vector;
 
-import util.Helper;
+import mql.java.exam.util.*;
 
 public class Filiere {
 	

@@ -3,17 +3,13 @@ package mql.java.exam.dao;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Hashtable;
-import java.util.List;
 import java.util.Vector;
 import mql.java.exam.models.Etudiant;
 import mql.java.exam.models.Filiere;
 import mql.java.exam.models.Module;
 import mql.java.exam.models.Note;
 import mql.java.exam.models.Semestre;
-import util.Helper;
 
 public class FileParser {
 
@@ -27,43 +23,35 @@ public class FileParser {
 		semestres = new Vector<Semestre>();
 
 		String dossierFiliere = "resources/notes/" + nomFiliere;
-		
+
 		File file = new File(dossierFiliere);
-		
-		listAndParseFiles(file);
-		
+
+		listAndParseFilesOfStudentsAndModules(file);
+
+		// after parsing the files we start the contruction of the 'filiere' object
 		this.filiere = new Filiere(nomFiliere, semestres);
 
 	}
 
-	private void listAndParseFiles(File folder) {
+	private void listAndParseFilesOfStudentsAndModules(File currentFile) {
 
-		for (File file : folder.listFiles()) {
-
+		for (File file : currentFile.listFiles()) {
 			if (file.isDirectory() && "Notes".equals(file.getName())) {
-			
 				modules = new Vector<Module>();
-				
 				parseNotes(file);
-			
 			}
 
 			else if (file.isDirectory()) {
-
-				listAndParseFiles(file);
-
+				listAndParseFilesOfStudentsAndModules(file);
 			}
 
 			else if ("Etudiants.txt".equals(file.getName())) {
-				
 				etudiants = new Vector<Etudiant>();
-				
 				parseEtudiant(file);
-				
 				/*
-				 * after the parsing of the student file and the modules files we start the construction
-				 * of the semesters object
-				*/
+				 * after the parsing of the student file and the modules files we start the
+				 * construction of the semesters object
+				 */
 				String nomSemestre = file.getParentFile().getName();
 
 				Etudiant[] tableauEtudiants = new Etudiant[this.etudiants.size()];
@@ -73,17 +61,14 @@ public class FileParser {
 
 				Semestre semestre = new Semestre(nomSemestre, tableauEtudiants, tableauModules);
 				semestres.add(semestre);
-
 			}
-
 		}
-
 	}
 
 	private void parseEtudiant(File file) {
 		try (FileReader fileReader = new FileReader(file); BufferedReader br = new BufferedReader(fileReader);) {
-			
-			//parsing the data needed for the student construction
+
+			// parsing the data needed for the student construction
 			String value = "";
 			while ((value = br.readLine()) != null) {
 
@@ -94,7 +79,7 @@ public class FileParser {
 				String nom = informationsEtudiant[2];
 				String prenom = informationsEtudiant[3];
 				Etudiant etudiant = new Etudiant(code, cne, nom, prenom);
-				
+
 				etudiants.add(etudiant);
 			}
 
@@ -108,7 +93,6 @@ public class FileParser {
 
 		File[] files = file.listFiles();
 
-		// parsing the data needed for the module construction
 		for (File module : files) {
 
 			try (FileReader fileReader = new FileReader(module); BufferedReader br = new BufferedReader(fileReader);) {
@@ -117,7 +101,7 @@ public class FileParser {
 				int nombreNotes = Integer.parseInt(br.readLine());
 				String[] informationsModule = module.getName().split("-");
 				int idModule = Integer.parseInt(informationsModule[0]);
-				
+
 				// removing the '.txt' suffix
 				String nomModule = informationsModule[1].substring(0, informationsModule[1].length() - 4);
 
@@ -132,8 +116,8 @@ public class FileParser {
 					String cne = informationsNote[0];
 
 					for (int i = 0; i < nombreNotes; i++) {
-						
-						//i+1 because the first index refers to the student's 'cne'
+
+						// i+1 because the first index refers to the student's 'cne'
 						double noteEtudiant = Double.parseDouble(informationsNote[i + 1]);
 						Note note = new Note(noteEtudiant, Integer.parseInt(coefficients[i]));
 						notesListe.add(note);
@@ -152,7 +136,7 @@ public class FileParser {
 		}
 
 	}
-	
+
 	public Filiere getFiliere() {
 		return filiere;
 	}

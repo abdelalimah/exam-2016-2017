@@ -1,4 +1,4 @@
-package util;
+package mql.java.exam.util;
 
 import java.util.Vector;
 
